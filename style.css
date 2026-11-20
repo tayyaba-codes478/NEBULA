@@ -1,0 +1,1811 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #07060c;
+    color: #f6f3ff;
+    font-family: 'DM Sans', sans-serif;
+    overflow-x: hidden;
+}
+
+body::selection {
+    background: #9b5cff;
+    color: white;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.background-glow {
+    position: fixed;
+    width: 600px;
+    height: 600px;
+    top: -220px;
+    right: -150px;
+    background: #5c22b8;
+    filter: blur(170px);
+    opacity: 0.13;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* LOADER */
+
+.loader {
+    position: fixed;
+    inset: 0;
+    background: #07060c;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    transition: opacity 0.7s, visibility 0.7s;
+}
+
+.loader.hide {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader-logo {
+    font-family: 'Space Grotesk';
+    font-size: 55px;
+    font-weight: 700;
+}
+
+.loader-logo span,
+.logo span {
+    color: #a66bff;
+}
+
+.loader-line {
+    width: 120px;
+    height: 2px;
+    background: #292130;
+    margin: 18px 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.loader-line::after {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: #a66bff;
+    animation: loading 1.5s ease-in-out forwards;
+}
+
+.loader p {
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: #797382;
+}
+
+@keyframes loading {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(0); }
+}
+
+/* NAVBAR */
+
+.navbar {
+    width: 100%;
+    height: 88px;
+    padding: 0 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    z-index: 20;
+}
+
+.logo {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 25px;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+.navbar nav {
+    display: flex;
+    gap: 38px;
+    padding: 13px 30px;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 50px;
+    background: rgba(255,255,255,0.035);
+    backdrop-filter: blur(20px);
+}
+
+.navbar nav a {
+    color: #a9a4b5;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+.navbar nav a:hover {
+    color: white;
+}
+
+.nav-btn {
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 50px;
+    padding: 12px 20px;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+.nav-btn span {
+    color: #b88aff;
+    margin-left: 12px;
+}
+
+.nav-btn:hover {
+    background: #a66bff;
+    border-color: #a66bff;
+}
+
+/* HERO */
+
+.hero {
+    min-height: 100vh;
+    padding: 130px 7% 60px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.hero-content {
+    width: 50%;
+    position: relative;
+    z-index: 5;
+}
+
+.hero-tag {
+    color: #aaa2b9;
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 28px;
+}
+
+.status-dot {
+    width: 7px;
+    height: 7px;
+    background: #a76bff;
+    border-radius: 50%;
+    box-shadow: 0 0 12px #a76bff;
+}
+
+.hero h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(65px, 8.2vw, 115px);
+    line-height: 0.98;
+    letter-spacing: -7px;
+    font-weight: 600;
+}
+
+.hero h1 span {
+    background: linear-gradient(100deg, #d8c0ff, #8d43ff, #b27aff);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.hero-description {
+    max-width: 420px;
+    margin-top: 28px;
+    color: #9791a3;
+    font-size: 15px;
+    line-height: 1.9;
+}
+
+.hero-buttons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 35px;
+}
+
+.primary-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 22px;
+    background: #8c4de8;
+    color: white;
+    padding: 15px 22px;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 600;
+    transition: 0.3s;
+    box-shadow: 0 0 25px rgba(140,77,232,0.15);
+}
+
+.primary-btn:hover {
+    background: #a46aff;
+    box-shadow: 0 0 35px rgba(140,77,232,0.35);
+}
+
+.secondary-btn {
+    color: #b0a9bd;
+    font-size: 13px;
+    padding: 15px 20px;
+    transition: 0.3s;
+}
+
+.secondary-btn:hover {
+    color: white;
+}
+
+/* 3D HERO */
+
+.hero-visual {
+    position: absolute;
+    width: 58%;
+    height: 90%;
+    right: -1%;
+    top: 8%;
+}
+
+#scene-container {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
+
+#scene-container canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.orb-label {
+    position: absolute;
+    z-index: 3;
+    color: #9186a5;
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+.label-one {
+    top: 20%;
+    right: 10%;
+}
+
+.label-one span {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background: #ad7bff;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.label-two {
+    bottom: 18%;
+    right: 12%;
+}
+
+.label-two span {
+    color: white;
+}
+
+.label-three {
+    bottom: 27%;
+    left: 5%;
+}
+
+/* INTRO STRIP */
+
+.intro-strip {
+    border-top: 1px solid rgba(255,255,255,0.08);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    min-height: 85px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 45px;
+    color: #888292;
+    font-size: 10px;
+    letter-spacing: 2.5px;
+}
+
+.strip-line {
+    width: 50px;
+    height: 1px;
+    background: #7444b3;
+}
+
+/* UNIVERSE */
+
+.universe-section {
+    padding: 150px 7%;
+}
+
+.section-label {
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    color: #a58cc8;
+    margin-bottom: 25px;
+}
+
+.section-heading h2,
+.about-content h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(45px, 6vw, 75px);
+    letter-spacing: -4px;
+    line-height: 1.1;
+    font-weight: 500;
+}
+
+.section-heading h2 span,
+.about-content h2 span,
+.final-content h2 span {
+    color: #a778ff;
+}
+
+.universe-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-top: 70px;
+}
+
+.universe-card {
+    min-height: 300px;
+    padding: 30px;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    transition: 0.4s;
+    background: linear-gradient(145deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+}
+
+.universe-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(168,108,255,0.4);
+    background: linear-gradient(145deg, rgba(115,61,176,0.13), rgba(255,255,255,0.015));
+}
+
+.card-number {
+    font-size: 11px;
+    color: #726a80;
+}
+
+.card-icon {
+    margin-top: 40px;
+    font-size: 32px;
+    color: #b58bff;
+}
+
+.universe-card h3 {
+    font-family: 'Space Grotesk';
+    font-size: 22px;
+    margin-top: 22px;
+}
+
+.universe-card p {
+    color: #928b9f;
+    font-size: 13px;
+    line-height: 1.8;
+    max-width: 290px;
+    margin-top: 12px;
+}
+
+.card-link {
+    display: inline-block;
+    margin-top: 25px;
+    font-size: 12px;
+    color: #c3a4ff;
+}
+
+/* ABOUT */
+
+.about-section {
+    padding: 100px 7%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 70px;
+}
+
+.about-visual {
+    height: 500px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 25px;
+    background: radial-gradient(circle, rgba(99,43,174,0.2), #0a0810 65%);
+}
+
+.about-orbit {
+    position: absolute;
+    border: 1px solid rgba(174,130,255,0.25);
+    border-radius: 50%;
+}
+
+.orbit-one {
+    width: 290px;
+    height: 290px;
+    transform: rotateX(65deg) rotateZ(-20deg);
+}
+
+.orbit-two {
+    width: 380px;
+    height: 380px;
+    transform: rotateX(65deg) rotateZ(30deg);
+}
+
+.about-core {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 25%, #e2c9ff, #9954f5 30%, #4c1d89 65%, #140b25);
+    box-shadow: 0 0 60px rgba(136,67,255,0.4), inset -20px -20px 50px #10091b;
+    animation: coreFloat 5s ease-in-out infinite;
+}
+
+@keyframes coreFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+.about-caption {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    right: 30px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #9c91b0;
+}
+
+.about-caption span:last-child {
+    font-size: 18px;
+    color: #b18aff;
+}
+
+.about-content p {
+    color: #9790a3;
+    font-size: 14px;
+    line-height: 1.9;
+    max-width: 420px;
+    margin: 25px 0 30px;
+}
+
+/* FINAL */
+
+.final-section {
+    min-height: 550px;
+    padding: 100px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border-top: 1px solid rgba(255,255,255,0.07);
+}
+
+.final-content {
+    position: relative;
+    z-index: 2;
+}
+
+.final-content > p {
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: #9c86bf;
+    margin-bottom: 25px;
+}
+
+.final-content h2 {
+    font-family: 'Space Grotesk';
+    font-size: clamp(50px, 7vw, 85px);
+    line-height: 1.05;
+    letter-spacing: -5px;
+    font-weight: 500;
+    margin-bottom: 35px;
+}
+
+.final-glow {
+    position: absolute;
+    width: 500px;
+    height: 300px;
+    background: #6a2cb6;
+    filter: blur(160px);
+    opacity: 0.17;
+    bottom: -100px;
+}
+
+footer {
+    min-height: 90px;
+    padding: 25px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+footer p {
+    font-size: 12px;
+    color: #777181;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+
+    .navbar {
+        padding: 0 5%;
+    }
+
+    .hero {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .hero-content {
+        width: 55%;
+    }
+
+    .hero-visual {
+        width: 58%;
+        right: -8%;
+    }
+
+    .hero h1 {
+        font-size: 75px;
+    }
+
+    .universe-section,
+    .about-section {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .universe-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .about-section {
+        gap: 35px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .navbar {
+        height: 75px;
+    }
+
+    .logo {
+        font-size: 21px;
+    }
+
+    .navbar nav {
+        gap: 15px;
+        padding: 12px 16px;
+    }
+
+    .navbar nav a {
+        font-size: 11px;
+    }
+
+    .nav-btn {
+        display: none;
+    }
+
+    .hero {
+        min-height: 850px;
+        align-items: flex-start;
+        padding-top: 140px;
+    }
+
+    .hero-content {
+        width: 100%;
+    }
+
+    .hero h1 {
+        font-size: 68px;
+        letter-spacing: -4px;
+    }
+
+    .hero-description {
+        font-size: 13px;
+        max-width: 340px;
+    }
+
+    .hero-visual {
+        width: 100%;
+        height: 470px;
+        top: 390px;
+        right: 0;
+    }
+
+    .label-one {
+        top: 5%;
+        right: 5%;
+    }
+
+    .label-two {
+        bottom: 10%;
+        right: 7%;
+    }
+
+    .label-three {
+        bottom: 18%;
+        left: 4%;
+    }
+
+    .intro-strip {
+        gap: 15px;
+        font-size: 8px;
+        letter-spacing: 1.2px;
+        min-height: 70px;
+    }
+
+    .strip-line {
+        width: 25px;
+    }
+
+    .universe-section {
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+
+    .section-heading h2,
+    .about-content h2 {
+        font-size: 48px;
+        letter-spacing: -3px;
+    }
+
+    .universe-grid {
+        grid-template-columns: 1fr;
+        margin-top: 40px;
+    }
+
+    .universe-card {
+        min-height: 280px;
+    }
+
+    .about-section {
+        grid-template-columns: 1fr;
+        padding-top: 30px;
+        padding-bottom: 100px;
+    }
+
+    .about-visual {
+        height: 380px;
+    }
+
+    .about-content p {
+        font-size: 13px;
+    }
+
+    .final-section {
+        min-height: 450px;
+        padding: 80px 5%;
+    }
+
+    .final-content h2 {
+        font-size: 53px;
+        letter-spacing: -3px;
+    }
+
+    footer {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    footer p {
+        font-size: 10px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+
+/* =================================
+   NEBULA — CINEMATIC MOTION UPGRADE
+================================= */
+
+/* Scroll progress */
+
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: linear-gradient(90deg, #8c4de8, #d1aaff);
+    z-index: 99999;
+    box-shadow: 0 0 12px #a66bff;
+}
+
+/* Scroll reveal */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(45px);
+    transition:
+        opacity 0.9s ease,
+        transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered cards */
+
+.universe-card.reveal {
+    transition-delay: var(--delay, 0s);
+}
+
+/* 3D card effect */
+
+.universe-card {
+    transform-style: preserve-3d;
+    will-change: transform;
+}
+
+.universe-card h3,
+.universe-card .card-icon,
+.universe-card p,
+.universe-card .card-link {
+    transition: transform 0.35s ease;
+}
+
+.universe-card:hover .card-icon {
+    transform: translateZ(35px) scale(1.12);
+}
+
+.universe-card:hover h3 {
+    transform: translateZ(22px);
+}
+
+/* Navbar scroll effect */
+
+.navbar.scrolled {
+    position: fixed;
+    height: 72px;
+    background: rgba(7, 6, 12, 0.78);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    animation: navAppear 0.35s ease;
+}
+
+@keyframes navAppear {
+    from {
+        opacity: 0.7;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Hero text entrance */
+
+.hero-content > * {
+    animation: heroEntrance 1s both;
+}
+
+.hero-tag {
+    animation-delay: 0.2s;
+}
+
+.hero h1 {
+    animation-delay: 0.35s;
+}
+
+.hero-description {
+    animation-delay: 0.55s;
+}
+
+.hero-buttons {
+    animation-delay: 0.7s;
+}
+
+@keyframes heroEntrance {
+    from {
+        opacity: 0;
+        transform: translateY(28px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* About section depth */
+
+.about-visual {
+    perspective: 1000px;
+}
+
+.about-core {
+    transition: transform 0.4s ease;
+}
+
+.about-orbit {
+    transition: transform 0.5s ease;
+}
+
+/* Final section */
+
+.final-content {
+    transition: transform 0.2s ease-out;
+}
+
+/* Responsive motion */
+
+@media (max-width: 600px) {
+
+    .reveal {
+        transform: translateY(25px);
+    }
+
+    .universe-card {
+        transform: none !important;
+    }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .reveal {
+        opacity: 1;
+        transform: none;
+    }
+
+    .hero-content > * {
+        animation: none;
+    }
+
+}
+
+
+/* NEBULA CINEMATIC SCROLL */
+
+.hero {
+    overflow: hidden;
+}
+
+#scene-container {
+    transition: filter 0.6s ease;
+}
+
+.universe-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.universe-section::before {
+    content: "";
+    position: absolute;
+    width: 650px;
+    height: 650px;
+    top: 5%;
+    right: -350px;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle,
+        rgba(117, 48, 210, 0.12),
+        transparent 70%
+    );
+    pointer-events: none;
+}
+
+.about-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.final-section {
+    background:
+        radial-gradient(
+            ellipse at 50% 100%,
+            rgba(112, 45, 195, 0.10),
+            transparent 60%
+        );
+}
+
+.hero,
+.universe-section,
+.about-section,
+.final-section {
+    scroll-margin-top: 80px;
+}
+
+/* =====================================
+   NEBULA UPGRADE 04
+   ASTEROID FIELD EFFECTS
+===================================== */
+
+#scene-container {
+    overflow: hidden;
+}
+
+.hero {
+    isolation: isolate;
+}
+
+.universe-section {
+    isolation: isolate;
+}
+
+/* Space atmosphere depth */
+.hero::after {
+    content: "";
+    position: absolute;
+    width: 450px;
+    height: 450px;
+    top: 15%;
+    right: -15%;
+    background: radial-gradient(
+        circle,
+        rgba(117, 49, 204, 0.08),
+        transparent 70%
+    );
+    filter: blur(35px);
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* =====================================
+   UPGRADE 05 - CINEMATIC ATMOSPHERE
+===================================== */
+
+.hero {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+
+    width: 550px;
+    height: 550px;
+
+    top: 5%;
+    right: 5%;
+
+    background: radial-gradient(
+        circle,
+        rgba(111, 46, 190, 0.14),
+        rgba(71, 25, 120, 0.05) 40%,
+        transparent 72%
+    );
+
+    filter: blur(55px);
+
+    pointer-events: none;
+    z-index: -1;
+}
+
+#scene-container {
+    filter: drop-shadow(0 0 24px rgba(125, 55, 210, 0.08));
+}
+
+/* =====================================
+   UPGRADE 06 - INTERACTIVE EXPERIENCE
+===================================== */
+
+#scene-container {
+    will-change: transform;
+    transition: transform 0.3s ease;
+}
+
+.hero-visual {
+    perspective: 1200px;
+}
+
+.hero-content {
+    transition: transform 0.35s ease;
+}
+
+@media (hover: hover) {
+
+    .hero-visual:hover {
+        transform: scale(1.015);
+    }
+
+}
+
+/* =====================================
+   NEBULA UPGRADE 07
+   PREMIUM GLASS INTERFACE
+===================================== */
+
+.universe-section article,
+.universe-section .universe-card,
+.glass-card {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+
+    background: linear-gradient(
+        145deg,
+        rgba(255,255,255,0.055),
+        rgba(115,65,180,0.035)
+    );
+
+    border: 1px solid rgba(190,155,255,0.13);
+    border-radius: 22px;
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    box-shadow:
+        0 15px 45px rgba(0,0,0,0.18),
+        inset 0 1px 0 rgba(255,255,255,0.05);
+
+    transition:
+        transform 0.45s ease,
+        border-color 0.45s ease,
+        box-shadow 0.45s ease,
+        background 0.45s ease;
+}
+
+/* Glass highlight */
+
+.universe-section article::before,
+.universe-section .universe-card::before,
+.glass-card::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        120deg,
+        transparent 20%,
+        rgba(255,255,255,0.07) 45%,
+        transparent 70%
+    );
+
+    transform: translateX(-120%);
+    transition: transform 0.8s ease;
+
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* Hover */
+
+@media (hover: hover) {
+
+    .universe-section article:hover,
+    .universe-section .universe-card:hover,
+    .glass-card:hover {
+
+        transform: translateY(-7px) scale(1.015);
+
+        border-color: rgba(180,130,255,0.38);
+
+        background: linear-gradient(
+            145deg,
+            rgba(130,75,205,0.10),
+            rgba(255,255,255,0.035)
+        );
+
+        box-shadow:
+            0 22px 55px rgba(76,30,140,0.18),
+            0 0 24px rgba(120,60,220,0.07),
+            inset 0 1px 0 rgba(255,255,255,0.08);
+    }
+
+    .universe-section article:hover::before,
+    .universe-section .universe-card:hover::before,
+    .glass-card:hover::before {
+        transform: translateX(120%);
+    }
+}
+
+/* Premium buttons */
+
+button,
+.btn,
+.button,
+a.button,
+.hero button {
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease;
+}
+
+@media (hover: hover) {
+
+    button:hover,
+    .btn:hover,
+    .button:hover,
+    a.button:hover {
+
+        box-shadow: 0 0 22px rgba(130,70,230,0.18);
+    }
+}
+
+/* Click feedback */
+
+button:active,
+.btn:active,
+.button:active {
+    transform: scale(0.97);
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .universe-section article,
+    .universe-section .universe-card,
+    .glass-card,
+    button,
+    .btn,
+    .button {
+        transition: none !important;
+    }
+}
+
+/* =====================================
+   NEBULA UPGRADE 08
+   CINEMATIC LOADING SCREEN
+===================================== */
+
+#nebula-cinematic-loader {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(82, 35, 145, 0.22),
+            transparent 48%
+        ),
+        #07050d;
+
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+#nebula-cinematic-loader.loader-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.loader-core {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    display: grid;
+    place-items: center;
+}
+
+.loader-ring {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 1px solid rgba(170, 120, 255, 0.15);
+    border-top: 2px solid #bd8cff;
+    border-right: 2px solid rgba(130, 70, 230, 0.5);
+    box-shadow: 0 0 25px rgba(132, 70, 225, 0.13);
+    animation: nebulaLoaderSpin 1.5s linear infinite;
+}
+
+.loader-ring-two {
+    position: absolute;
+    inset: 12px;
+    border-radius: 50%;
+    border: 1px dashed rgba(194, 160, 255, 0.35);
+    animation: nebulaLoaderReverse 4s linear infinite;
+}
+
+.loader-center {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #d5b8ff;
+    box-shadow:
+        0 0 10px #b88aff,
+        0 0 28px #8647e8,
+        0 0 55px rgba(134, 71, 232, 0.5);
+}
+
+.loader-brand {
+    margin-top: 32px;
+    font-size: 13px;
+    letter-spacing: 8px;
+    color: #e4d4ff;
+    font-weight: 600;
+}
+
+.loader-caption {
+    margin-top: 12px;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: #8b7b9f;
+}
+
+.loader-track {
+    width: 170px;
+    height: 2px;
+    margin-top: 25px;
+    background: rgba(255,255,255,0.08);
+    overflow: hidden;
+}
+
+.loader-progress {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #7540c9, #d0a8ff);
+    box-shadow: 0 0 12px rgba(171, 115, 255, 0.55);
+}
+
+.loader-percent {
+    margin-top: 12px;
+    color: #bda3df;
+    font-size: 11px;
+    letter-spacing: 2px;
+}
+
+@keyframes nebulaLoaderSpin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes nebulaLoaderReverse {
+    to {
+        transform: rotate(-360deg);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .loader-ring,
+    .loader-ring-two {
+        animation-duration: 8s;
+    }
+}
+
+/* =====================================
+   NEBULA UPGRADE 09
+   CUSTOM CURSOR
+===================================== */
+
+@media (hover: hover) and (pointer: fine) {
+
+    body.nebula-cursor-active {
+        cursor: none;
+    }
+
+    body.nebula-cursor-active a,
+    body.nebula-cursor-active button {
+        cursor: none;
+    }
+
+    .nebula-cursor-dot,
+    .nebula-cursor-ring {
+        position: fixed;
+        left: 0;
+        top: 0;
+        pointer-events: none;
+        z-index: 999999;
+        border-radius: 50%;
+        opacity: 0;
+    }
+
+    .nebula-cursor-dot {
+        width: 6px;
+        height: 6px;
+        background: #d7b8ff;
+        box-shadow: 0 0 12px #a66cff;
+    }
+
+    .nebula-cursor-ring {
+        width: 34px;
+        height: 34px;
+        border: 1px solid rgba(183, 136, 255, 0.5);
+        background: rgba(125, 65, 200, 0.04);
+        backdrop-filter: blur(2px);
+        transition:
+            width 0.25s ease,
+            height 0.25s ease,
+            border-color 0.25s ease,
+            background 0.25s ease;
+    }
+
+    .nebula-cursor-ring.cursor-hover {
+        width: 52px;
+        height: 52px;
+        border-color: rgba(208, 174, 255, 0.85);
+        background: rgba(132, 76, 215, 0.08);
+    }
+
+    body.nebula-cursor-active .nebula-cursor-dot,
+    body.nebula-cursor-active .nebula-cursor-ring {
+        opacity: 1;
+    }
+}
+
+/* Reduced motion and touch devices */
+
+@media (hover: none), (pointer: coarse), (prefers-reduced-motion: reduce) {
+
+    .nebula-cursor-dot,
+    .nebula-cursor-ring {
+        display: none !important;
+    }
+
+    body {
+        cursor: auto !important;
+    }
+}
+
+/* =====================================
+   NEBULA UPGRADE 10
+   SPACE CONTROL PANEL
+===================================== */
+
+.nebula-controls {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 1000;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 10px;
+
+    background: rgba(13, 9, 24, 0.72);
+    border: 1px solid rgba(172, 123, 245, 0.2);
+    border-radius: 16px;
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    box-shadow: 0 8px 35px rgba(0, 0, 0, 0.25);
+}
+
+.nebula-controls button {
+    width: 38px;
+    height: 38px;
+
+    display: grid;
+    place-items: center;
+
+    border: 1px solid rgba(180, 135, 255, 0.15);
+    border-radius: 11px;
+
+    background: rgba(130, 75, 205, 0.08);
+    color: #e5d4ff;
+
+    font-size: 17px;
+
+    cursor: pointer;
+
+    transition: 0.25s ease;
+}
+
+.nebula-controls button:hover {
+    background: rgba(135, 78, 220, 0.2);
+    border-color: rgba(195, 155, 255, 0.5);
+    box-shadow: 0 0 18px rgba(130, 70, 220, 0.15);
+}
+
+.nebula-controls button:active {
+    transform: scale(0.93);
+}
+
+.nebula-controls .control-reset {
+    font-size: 11px;
+    letter-spacing: 1px;
+    width: 68px;
+}
+
+@media (max-width: 600px) {
+    .nebula-controls {
+        right: 12px;
+        bottom: 12px;
+        gap: 5px;
+        padding: 7px;
+    }
+
+    .nebula-controls button {
+        width: 34px;
+        height: 34px;
+    }
+
+    .nebula-controls .control-reset {
+        width: 58px;
+    }
+}
+
+/* =====================================
+   NEBULA UPGRADE 11
+   CINEMATIC SECTION TRANSITIONS
+===================================== */
+
+.universe-section,
+.about-section,
+.final-section {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+}
+
+/* Ambient background glow */
+
+.universe-section::before,
+.about-section::before,
+.final-section::before {
+    content: "";
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    border-radius: 50%;
+    filter: blur(100px);
+
+    pointer-events: none;
+    z-index: -1;
+
+    opacity: 0.55;
+}
+
+.universe-section::before {
+    top: 10%;
+    left: -300px;
+
+    background: rgba(105, 45, 185, 0.12);
+}
+
+.about-section::before {
+    top: 15%;
+    right: -300px;
+
+    background: rgba(145, 75, 220, 0.10);
+}
+
+.final-section::before {
+    bottom: -250px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    background: rgba(120, 55, 220, 0.16);
+}
+
+/* Heading reveal */
+
+.universe-section h1,
+.universe-section h2,
+.about-section h1,
+.about-section h2,
+.final-section h1,
+.final-section h2 {
+    text-wrap: balance;
+}
+
+/* Section content smooth appearance */
+
+.universe-section .reveal,
+.about-section .reveal,
+.final-section .reveal {
+    transition:
+        opacity 0.9s ease,
+        transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+/* Section decorative divider */
+
+.nebula-section-divider {
+    width: 100%;
+    height: 1px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(160, 110, 235, 0.28),
+        rgba(205, 175, 255, 0.15),
+        transparent
+    );
+
+    pointer-events: none;
+}
+
+/* Scroll spacing */
+
+.universe-section,
+.about-section,
+.final-section {
+    scroll-margin-top: 90px;
+}
+
+/* Mobile optimization */
+
+@media (max-width: 768px) {
+
+    .universe-section::before,
+    .about-section::before,
+    .final-section::before {
+        width: 300px;
+        height: 300px;
+        filter: blur(75px);
+    }
+
+}
+
+/* Reduced motion */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .universe-section .reveal,
+    .about-section .reveal,
+    .final-section .reveal {
+        transition: none;
+    }
+
+}
+
+/* =====================================
+   NEBULA UPGRADE 12
+   PLANET DISCOVERY PANEL
+===================================== */
+
+.nebula-discovery {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -46%) scale(0.94);
+
+    width: min(390px, calc(100vw - 32px));
+    padding: 28px;
+
+    background: rgba(12, 8, 23, 0.92);
+    border: 1px solid rgba(184, 139, 255, 0.24);
+    border-radius: 22px;
+
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+
+    box-shadow:
+        0 25px 80px rgba(0, 0, 0, 0.5),
+        0 0 45px rgba(111, 51, 196, 0.12);
+
+    color: #f3eaff;
+    z-index: 10001;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition:
+        opacity 0.35s ease,
+        transform 0.35s ease,
+        visibility 0.35s ease;
+}
+
+.nebula-discovery.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.discovery-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.discovery-label {
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: #ad86e8;
+}
+
+.discovery-close {
+    width: 34px;
+    height: 34px;
+
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.04);
+    color: #fff;
+
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.discovery-close:hover {
+    background: rgba(143, 78, 224, 0.18);
+}
+
+.discovery-icon {
+    width: 72px;
+    height: 72px;
+
+    display: grid;
+    place-items: center;
+
+    margin-bottom: 18px;
+
+    border-radius: 50%;
+
+    background: radial-gradient(
+        circle,
+        rgba(147, 83, 230, 0.22),
+        rgba(87, 39, 145, 0.06)
+    );
+
+    border: 1px solid rgba(177, 132, 255, 0.2);
+
+    font-size: 30px;
+
+    box-shadow: 0 0 28px rgba(125, 68, 220, 0.12);
+}
+
+.discovery-title {
+    margin: 0 0 12px;
+
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: -1px;
+}
+
+.discovery-description {
+    margin: 0;
+
+    font-size: 13px;
+    line-height: 1.9;
+
+    color: #aaa0bb;
+}
+
+.discovery-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+
+    margin-top: 24px;
+}
+
+.discovery-stat {
+    padding: 14px;
+
+    background: rgba(255,255,255,0.035);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 13px;
+}
+
+.discovery-stat small {
+    display: block;
+    margin-bottom: 7px;
+
+    color: #8e7ca6;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+}
+
+.discovery-stat strong {
+    color: #e5d4ff;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.discovery-hint {
+    margin-top: 20px;
+
+    color: #7f708f;
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+
+/* ==========================================
+   MOBILE RESPONSIVE — NEBULA
+========================================== */
+
+@media (max-width: 480px) {
+
+    .nebula-discovery {
+        width: calc(100% - 32px);
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    .discovery-title {
+        font-size: 24px;
+        line-height: 1.25;
+    }
+
+    .nebula-discovery p {
+        font-size: 13px;
+        line-height: 1.7;
+    }
+
+    #scene-container {
+        width: 100%;
+        overflow: hidden;
+    }
+
+    #scene-container canvas {
+        display: block;
+        max-width: 100%;
+    }
+
+    button {
+        -webkit-tap-highlight-color: transparent;
+    }
+
+}
+
+/* ==========================================
+   TABLET RESPONSIVE
+========================================== */
+
+@media (min-width: 481px) and (max-width: 768px) {
+
+    .nebula-discovery {
+        max-width: 420px;
+        padding: 24px;
+    }
+
+    .discovery-title {
+        font-size: 28px;
+    }
+
+}
+
+/* ==========================================
+   CURSOR FEEDBACK
+========================================== */
+
+#scene-container canvas {
+    cursor: crosshair;
+}
